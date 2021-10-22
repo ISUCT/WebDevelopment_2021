@@ -27,7 +27,6 @@
         "recommendations": [
             "msjsdiag.debugger-for-chrome",
             "ms-azuretools.vscode-docker",
-            "ms-vscode.vscode-typescript-tslint-plugin",
             "mhutchie.git-graph",
             "esbenp.prettier-vscode"
         ]
