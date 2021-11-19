@@ -1,18 +1,30 @@
-import React from 'react'
-import { getCats, Cat as ICat } from '../../api/catsApi';
-import Cat from './Cat'
+import { CircularProgress } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { getCats, Cat as ICat } from "../../api/catsApi";
+import Cat from "./Cat";
 
 export default function CatsList() {
-    const cats = getCats(); // not quite correct - will fix it next time
-    return (
-        <div>
-            <h1>Cats List</h1>
-            {
-                cats.map((cat: ICat) => {
-                    console.log(cat);
-                    return <Cat/>
-                }) 
-            }
-        </div>
-    )
+  const [cats, setcats] = useState<ICat[]>([]);
+
+  useEffect(() => {
+    console.log("Loading");
+    const getData = async () => {
+      const cats = await getCats();
+      setcats(cats);
+    };
+    getData();
+  }, []);
+
+  return (
+    <div>
+      <h1>Cats List</h1>
+      { cats.length > 0 ?
+      cats.map((cat: ICat) => {
+        console.log(cat);
+        return <Cat cat={cat} extra={"something"} key={cat.name} />;
+      })
+      : <CircularProgress />
+    }
+    </div>
+  );
 }

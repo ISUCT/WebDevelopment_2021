@@ -4,20 +4,30 @@ export interface Cat {
     age: number;
 }
 
-export const getCats = (): Cat[] => {
+export const  getCats = (): Promise<Cat[]> => {
     const cats:Cat[] = [
         {
-            name: "Vasya",
-            age: 3
+            name: "Murzik",
+            age: 1,
         },
         {
-            name: "Murzik",
-            age: 4
+            name: "Murka",
+            age: 5,
         },
         {
             name: "Dymok",
             age: 1
         }
-    ]
-    return cats;
-} 
+    ];
+
+    const promise = new Promise<Cat[]>(
+        (res, rej) => {
+        setTimeout(()=> {
+            res(cats);
+        },5000
+        );
+    });
+
+
+    return promise;
+}
