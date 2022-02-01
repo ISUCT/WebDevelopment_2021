@@ -1,4 +1,4 @@
-export class Cat {
+export class CatDto {
     id?: number;
     name: string;
     age: number;

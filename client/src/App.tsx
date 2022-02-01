@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import CatsList from "./components/Cats/CatsList";
+import First from "./components/FirstComponent/First";
+import Second from "./components/SecondComponent/Second";
 
 function App() {
-
-  const [name, setName] = useState("");
-
-  useEffect(() => {
-    console.log("Fetching");
-  }, []);
-
   return (
     <>
-      {`Hello Demo App ${name}`}
+      <h1>Hello Demo App</h1>
+      <First />
+      <Second />
+      <CatsList/>
     </>
   );
 }
