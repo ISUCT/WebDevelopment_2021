@@ -1,6 +1,6 @@
 import { CircularProgress } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import { getCats, Cat as ICat } from "../../api/catsApi";
+import { getCats, Cat as ICat, getCatsApi } from "../../api/catsApi";
 import Cat from "./Cat";
 
 export default function CatsList() {
@@ -9,7 +9,7 @@ export default function CatsList() {
   useEffect(() => {
     console.log("Loading");
     const getData = async () => {
-      const cats = await getCats();
+      const cats = await getCatsApi();
       setcats(cats);
     };
     getData();
