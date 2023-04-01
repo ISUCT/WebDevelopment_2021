@@ -43,4 +43,15 @@ export class DogsService {
       await this.dogsRepository.flush();
       return entity;
     }
+
+    async deleteById(id: number) {
+      const entity = await this.dogsRepository.findOne({
+        id
+      });
+      if (!entity) {
+        return false;
+      }
+      this.dogsRepository.removeAndFlush(entity);
+      return true;
+    }
 }
