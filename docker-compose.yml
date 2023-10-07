@@ -4,10 +4,11 @@ services:
     image: postgres
     environment:
       POSTGRES_PASSWORD: example
+      PGDATA: /var/lib/postgresql/data/pgdata
     ports:
       - 5432:5432
-  # volumes:
-  #   - ./folder:/container_folder
+    volumes:
+      - pgdata:/var/lib/postgresql/data
   adminer:
     image: adminer
     ports:
@@ -18,7 +19,7 @@ services:
   #   build: 
   #     context: ./server/
   #     dockerfile: ./server.dockerfile
-  #   image: jskonst/web-app:server
+  #   image: isuct/web-app:server
   #   environment:
   #     - SOME_VAR=my_var
   #   ports:
@@ -38,3 +39,6 @@ services:
   #     - 5000:3000
   #   depends_on:
   #     - server
+volumes:
+  pgdata:
+    external: true

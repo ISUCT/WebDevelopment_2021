@@ -8,23 +8,23 @@ export class DogsController {
     private readonly dogsService: DogsService,
   ) {}
 
-  dogs: Dog[] = [
-    {
-      id: 1,
-      name: "Sharik",
-      age: 1
-    },
-    {
-      id: 2,
-      name: "Tuzik",
-      age: 2
-    },
-    {
-      id: 5,
-      name: "Bobik",
-      age: 3
-    },
-  ]
+  // dogs: Dog[] = [
+  //   {
+  //     id: 1,
+  //     name: "Sharik",
+  //     age: 1
+  //   },
+  //   {
+  //     id: 2,
+  //     name: "Tuzik",
+  //     age: 2
+  //   },
+  //   {
+  //     id: 5,
+  //     name: "Bobik",
+  //     age: 3
+  //   },
+  // ]
 
   @Get()
   async findAll(): Promise<Dog[]> {
@@ -54,11 +54,10 @@ export class DogsController {
   }
 
   @Delete(':id')
-  deleteById(@Param('id', new ParseIntPipe()) id,): boolean {
-    const len = this.dogs.length;
-    this.dogs = this.dogs.filter(item => item.id !== id);
-    if (len === this.dogs.length){
-      throw new NotFoundException();
+  async deleteById(@Param('id', new ParseIntPipe()) id,): Promise<boolean> {
+    const res = await this.dogsService.deleteById(id)
+    if (!res) {
+      throw new BadRequestException(`dog with id=${id} does not exist`);
     }
     return true;
   }

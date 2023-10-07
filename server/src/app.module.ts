@@ -6,6 +6,7 @@ import { DemoController } from './demo/demo.controller';
 import { CatsModule } from './cats/cats.module';
 import { DogsModule } from './dogs/dogs.module';
 import { MikroOrmModule } from '@mikro-orm/nestjs';
+import { BooksModule } from './books/books.module';
 
 @Module({
   imports: [
@@ -26,7 +27,7 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
       emit: 'ts', // migration generation mode
     },
   }),
-CatsModule, DogsModule],
+CatsModule, DogsModule, BooksModule],
   controllers: [AppController, DemoController],
   providers: [AppService],
 })

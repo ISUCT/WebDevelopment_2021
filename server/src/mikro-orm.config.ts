@@ -1,8 +1,9 @@
 import { MikroOrmModuleOptions } from "@mikro-orm/nestjs";
+import { Book } from "./books/models/book";
 import { Dog } from "./dogs/dog";
 
  const config: MikroOrmModuleOptions = {
-  entities: [Dog], // no need for `entitiesTs` this way
+  entities: [Dog, Book], // no need for `entitiesTs` this way
   dbName: 'webdev',
   host: "localhost",
   port: 5432,
