@@ -6,6 +6,6 @@ export class DemoController {
 
   @Get()
   getHello(): any {
-    return {"some": 2, "name": "Server"};
+    return { some: 2, name: 'Server' };
   }
 }

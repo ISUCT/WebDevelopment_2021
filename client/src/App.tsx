@@ -1,15 +1,13 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { FirstComponent } from "./components/FirstComponent";
+import Users from "./components/Users";
 
 function App() {
   return (
-    <div>
+    <>
       <h1>Hello React world</h1>
-      <h2>Hello</h2>
-      <FirstComponent />
-    </div>
+      <h2>Hello again</h2>
+      <Users />
+    </>
   );
 }
 
