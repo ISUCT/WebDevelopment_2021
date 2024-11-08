@@ -1,19 +1,19 @@
-import { MikroOrmModuleOptions } from "@mikro-orm/nestjs";
-import { Book } from "./books/models/book";
-import { Dog } from "./dogs/dog";
+import { MikroOrmModuleOptions } from '@mikro-orm/nestjs';
+import { User } from './users/entities/user.entity';
+import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 
- const config: MikroOrmModuleOptions = {
-  entities: [Dog, Book], // no need for `entitiesTs` this way
+const config: MikroOrmModuleOptions = {
+  entities: [User], // no need for `entitiesTs` this way
+  driver: PostgreSqlDriver,
   dbName: 'webdev',
-  host: "localhost",
+  host: 'localhost',
   port: 5432,
   // dbName: process.env.POSTGRES_DB,
-  user: "postgres",
-  password: "example",
-  type: "postgresql",
+  user: 'postgres',
+  password: 'example',
 };
 
-export default config
+export default config;
 
 // const config: MikroOrmModuleOptions = {
 //   migrations: {
@@ -30,4 +30,3 @@ export default config
 //   type: "postgresql",
 //   debug: process.env.NODE_ENV !== "production",
 // };
-

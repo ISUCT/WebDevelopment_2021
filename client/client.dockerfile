@@ -1,6 +1,9 @@
-FROM node:alpine
+FROM node:alpine as builder
 WORKDIR /app
 COPY ./package*.json ./
 RUN npm install
 COPY ./ ./
-ENTRYPOINT npm start
+RUN npm run build
+# ENTRYPOINT npm start
+
+FROM nginx 
