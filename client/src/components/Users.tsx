@@ -12,30 +12,6 @@ const getUsers = async ():Promise<UserInfo[]> => {
     const resp = await fetch("/api/users");
     const data = await resp.json();
     return data;
-//     console.log(data);
-
-// const users: UserInfo[] = 
-//     [
-//     {
-//         id: "de1b01ad-c4aa-45d9-8147-c091ce89cd02",
-//         username: "testuser",
-//         fullname: "test",
-//         email: "test@test.ru"
-//     },
-//      {
-//         id: "de1b01ad-c4aa-45d9-8147-c091ce89cd01",
-//         username: "testuser2",
-//         fullname: "test2",
-//         email: "222@test2.ru"
-//     }
-// ]
-//     const promise = new Promise<UserInfo[]>((res, rej) =>{
-//         setTimeout(()=>{
-//             res(users);
-//         }, 5000)
-//     });
-//     return promise;
-
 }
 
 

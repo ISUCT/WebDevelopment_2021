@@ -22,6 +22,11 @@ export class UsersService {
     return users;
   }
 
+  async findByName(username: string): Promise<User | undefined> {
+    const [user] = await this.userRepository.find({ username} );
+    return user;
+  }
+
   findOne(id: number) {
     return `This action returns a #${id} user`;
   }
